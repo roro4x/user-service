@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @PostMapping
-    public ResponseEntity<Void> createUser(@RequestBody @Valid UserRequest request) {
+    public ResponseEntity<Void> createUser(
+            @RequestBody
+            @Valid
+            UserRequest request) {
         return ResponseEntity.created(null).build();
     }
 }
