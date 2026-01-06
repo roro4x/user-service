@@ -8,7 +8,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
-public class InMemoryUserRepository {
+public class UserRepository {
 
 
     private final Map<UUID, User> users = new ConcurrentHashMap<>();

@@ -27,10 +27,10 @@ public class UserControllerTest {
     @Test
     void shouldReturn201WhenValidEmailProvided() throws Exception {
         mockMvc.perform(post("/api/users")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("""
-                        {"email": "user@example.com"}
-                        """))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {"email": "user@example.com"}
+                                """))
                 .andExpect(status().isCreated());
     }
 
@@ -39,8 +39,8 @@ public class UserControllerTest {
         mockMvc.perform(post("/api/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
-                        {"email": "not-an-email"}
-                        """))
+                                {"email": "not-an-email"}
+                                """))
                 .andExpect(status().isBadRequest());
     }
 
@@ -48,8 +48,8 @@ public class UserControllerTest {
     void shouldCreateUserAndRetrieveByEmail() throws Exception {
         String email = "user@test.com";
         String userJson = """
-            {"email": "%s"}
-            """.formatted(email);
+                {"email": "%s"}
+                """.formatted(email);
         mockMvc.perform(post("/api/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(userJson))
@@ -64,8 +64,8 @@ public class UserControllerTest {
     void shouldConflictByDuplicateUser() throws Exception {
         String email = "user@duplicate.com";
         String userJson = """
-            {"email": "%s"}
-            """.formatted(email);
+                {"email": "%s"}
+                """.formatted(email);
         mockMvc.perform(post("/api/users")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(userJson))
